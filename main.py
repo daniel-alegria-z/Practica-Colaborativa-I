@@ -1,8 +1,10 @@
 from Profesor import Profesor
 from Administrativos import Administrativo
+from Estudiante import Estudiante
 
 lista_profesor = []
 lista_administrativo = []
+lista_estudiante = []
 
 
 def registrar_administrativo():
@@ -106,7 +108,50 @@ def eliminar_profesor():
             return
     print(f"\nNo se encontró al profesor con nombre '{nombre_a_eliminar}'\n")
 
+def registrar_estudiante():
+    print('Se va a registrar un estudiante')
+    name = input('\nIngresar el nombre completo del estudiante: ')
+    address = input('Ingrese el dirección: ')
+    age = input('Ingrese la edad: ')
+    course = input('Ingresar el curso: ')
 
+    estudiante = Estudiante(name, age, address, course) 
+    lista_estudiante.append(estudiante) 
+    print('\nEstudiante guardado con éxito\n')
+
+def mostrar_estudiante():
+    num = 1    
+    if len(lista_estudiante) == 0:
+        print("\nNo hay estudiantes en la lista.\n\n")
+    else:
+        print('\nSe va a mostrar un listado de estudiantes:\n')
+        for estudiante in lista_estudiante:
+            print(f'#{num}.')
+            num += 1
+            print(estudiante, "\n")
+        print("Estudiantes listados en su totalidad con éxito.\n")
+
+def actualizar_estudiante():
+    nombre_actualizar = input("Ingrese el nombre completo del estudiante a actualizar: ")
+    for estudiante in lista_estudiante:
+        if estudiante.get_nombre() == nombre_actualizar:
+            print(f"\nEstudiante encontrado. {estudiante}")
+            estudiante.set_nombre(input("\nIngrese el nuevo nombre completo: "))
+            estudiante.set_direccion(input("Ingrese la nueva dirección: "))
+            estudiante.set_edad(input("Ingrese la nueva edad: "))
+            estudiante.set_curso(input("Ingrese el nuevo curso: "))
+            print(f"\nEstudiante '{nombre_actualizar}' actualizado exitosamente!\n")
+            return
+    print(f"\nNo se encontró al estudiante con nombre '{nombre_actualizar}'\n")
+
+def eliminar_estudiante():
+    nombre_eliminar = input("Ingrese el nombre completo del estudiante a eliminar: ")
+    for estudiante in lista_estudiante:
+        if estudiante.get_nombre() == nombre_eliminar:
+            lista_estudiante.remove(estudiante)
+            print(f"\nEstudiante '{nombre_eliminar}' eliminado exitosamente!\n")
+            return
+    print(f"\nNo se encontró al estudiante con nombre '{nombre_eliminar}'\n")
 
 def menu_root():
     while True:
