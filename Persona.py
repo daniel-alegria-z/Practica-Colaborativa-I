@@ -26,3 +26,4 @@ class Persona:
 
     def __str__(self):
         return f"Su nombre es: {self.get_nombre()} \nSu edad es: {self.get_edad()} \nLa dirección es: {self.get_direccion()} "
+        
