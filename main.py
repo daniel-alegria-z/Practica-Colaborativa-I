@@ -1,3 +1,113 @@
+from Profesor import Profesor
+from Administrativos import Administrativo
+
+lista_profesor = []
+lista_administrativo = []
+
+
+def registrar_administrativo():
+    print('Se va a registrar un administrativo')
+    nombre = input('\nIngresar el nombre completo del administrativo: ')
+    direccion = input('Ingresar la dirección: ')
+    edad = input('Ingresar la edad: ')
+    cargo = input('Ingresar el cargo: ')
+    fecha_vinculacion = input('Ingresar la fecha de vinculación (DD/MM/AA): ')
+    
+    administrativo = Administrativo(nombre, edad, direccion, cargo, fecha_vinculacion)
+    lista_administrativo.append(administrativo)
+    print('\nAdministrativo guardado con éxito\n')
+    
+def mostrar_administrativo():
+    num = 1
+    if len(lista_administrativo) == 0:
+        print("\nNo hay administrativos en la lista.\n\n")
+    else:
+        print('\nSe va a mostrar un listado de administrativos:\n')
+        for administrativo in lista_administrativo:
+            print(f'#{num}.')
+            num += 1
+            print(administrativo, "\n")
+        print("Administrativos listados en su totalidad con éxito.\n")
+        
+def actualizar_administrativo():
+    nombre_actualizar = input("Ingrese el nombre del administrativo a actualizar: ")
+    for administrativo in lista_administrativo:
+        if administrativo.get_nombre() == nombre_actualizar:
+            print(f"\nAdministrativo encontrado. {administrativo}")
+            administrativo.set_nombre(input("\nIngrese el nuevo nombre completo del administrativo: "))
+            administrativo.set_direccion(input("Ingrese la nueva dirección: "))
+            administrativo.set_edad(input("Ingrese la nueva edad: "))
+            administrativo.set_cargo(input("Ingrese el nuevo cargo: "))
+            administrativo.set_fecha_vinculacion(input("Ingrese la nueva fecha de vinculación (DD/MM/AA): "))
+            print(f"\nAdministrativo '{nombre_actualizar}' actualizado exitosamente!\n")
+            return
+    print(f"\nNo se encontró al administrativo con nombre '{nombre_actualizar}'\n")
+    
+def eliminar_administrativo():
+    nombre_eliminar = input("Ingrese el nombre del administrativo a eliminar: ")
+    for administrativo in lista_administrativo:
+        if administrativo.get_nombre() == nombre_eliminar:
+            lista_administrativo.remove(administrativo)
+            print(f"\nAdministrativo '{nombre_eliminar}' eliminado exitosamente!\n")
+            return
+    print(f"\nNo se encontró al administrativo con nombre '{nombre_eliminar}'\n")    
+    
+
+def registrar_profesor():
+    print('Se va a registrar un profesor')
+    nombre = input('\nIngresar el nombre completo del profesor: ')
+    direccion = input('Ingresar la dirección: ')
+    edad = input('Ingresar la edad: ')
+    telefono = input('Ingresar el teléfono: ')
+    materia = input('Ingresar la materia que imparte: ')
+    titulacion = input('Ingresar la titulación: ')
+    horario = input('Ingresar el horario de clases: ')
+    salario = input('Ingresar el salario: ')
+
+    profesor = Profesor(nombre, edad, direccion, materia, salario, telefono, titulacion, horario)
+    lista_profesor.append(profesor)  
+    print('\nProfesor guardado con éxito\n')
+
+def mostrar_profesor():
+    num = 1    
+    if len(lista_profesor) == 0:
+        print("\nNo hay profesores en la lista.\n\n")
+    else:
+        print('\nSe va a mostrar un listado de profesores:\n')
+        for profesor in lista_profesor:
+            print(f'#{num}.')
+            num += 1
+            print(profesor, "\n")
+        print("Profesores listados en su totalidad con éxito.\n")
+
+def actualizar_profesor():
+    nombre_a_actualizar = input("Ingrese el nombre del profesor a actualizar: ")
+    for profesor in lista_profesor:
+        if profesor.get_nombre() == nombre_a_actualizar:
+            print(f"\nProfesor encontrado. {profesor}")
+            profesor.set_nombre(input("\nIngrese el nuevo nombre completo del profesor: "))
+            profesor.set_direccion(input("Ingrese la nueva dirección: "))
+            profesor.set_edad(input("Ingrese la nueva edad: "))
+            profesor.set_telefono(input("Ingrese el nuevo teléfono: "))
+            profesor.set_materia(input("Ingrese la nueva materia: "))
+            profesor.set_titulacion(input("Ingrese la nueva titulación: "))
+            profesor.set_horario(input("Ingrese el nuevo horario: "))
+            profesor.set_salario(input("Ingrese el nuevo salario: "))
+            print(f"\nProfesor '{nombre_a_actualizar}' actualizado exitosamente!\n")
+            return
+    print(f"\nNo se encontró al profesor con nombre '{nombre_a_actualizar}'\n")
+
+def eliminar_profesor():
+    nombre_a_eliminar = input("Ingrese el nombre del profesor a eliminar: ")
+    for profesor in lista_profesor:
+        if profesor.get_nombre() == nombre_a_eliminar:
+            lista_profesor.remove(profesor)
+            print(f"\nProfesor '{nombre_a_eliminar}' eliminado exitosamente!\n")
+            return
+    print(f"\nNo se encontró al profesor con nombre '{nombre_a_eliminar}'\n")
+
+
+
 def menu_root():
     while True:
         print('::: MENU USUARIO ROOT :::')
