@@ -66,9 +66,10 @@ def registrar_profesor():
     horario = input('Ingresar el horario de clases: ')
     salario = input('Ingresar el salario: ')
 
-    profesor = Profesor(nombre, edad, direccion, materia, salario, telefono, titulacion, horario)
+    profesor = Profesor(nombre, edad, direccion, telefono, materia, titulacion, horario, salario)
     lista_profesor.append(profesor)  
     print('\nProfesor guardado con éxito\n')
+
 
 def mostrar_profesor():
     num = 1    

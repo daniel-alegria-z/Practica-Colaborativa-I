@@ -1,8 +1,8 @@
 from Persona import Persona
 
 class Profesor(Persona):
-    def _init_(self, nombre, edad, direccion, telefono, materia, titulacion, horario, salario,):
-        super()._init_(nombre, edad, direccion)
+    def __init__(self, nombre, edad, direccion, telefono, materia, titulacion, horario, salario,):
+        super().__init__(nombre, edad, direccion)
         self.__telefono = telefono
         self.__materia = materia
         self.__titulacion = titulacion
@@ -41,3 +41,4 @@ class Profesor(Persona):
 
     def _str_(self):
         return f"Los datos del profesor son los siguientes:\n{super()._str_()}\nTeléfono: {self.get_telefono()}\nMateria: {self.get_materia()}\nTitulación: {self.get_titulacion()}\nHorario: {self.get_horario()}\nsalario: {self.get_salario()}"
+    
