@@ -41,3 +41,4 @@ class Profesor(Persona):
 
     def _str_(self):
         return f"Los datos del profesor son los siguientes:\n{super()._str_()}\nTeléfono: {self.get_telefono()}\nMateria: {self.get_materia()}\nTitulación: {self.get_titulacion()}\nHorario: {self.get_horario()}\nsalario: {self.get_salario()}"
+    
