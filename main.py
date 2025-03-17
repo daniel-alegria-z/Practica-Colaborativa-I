@@ -70,6 +70,7 @@ def registrar_profesor():
     lista_profesor.append(profesor)  
     print('\nProfesor guardado con éxito\n')
 
+
 def mostrar_profesor():
     num = 1    
     if len(lista_profesor) == 0:
