@@ -1,8 +1,8 @@
 from Persona import Persona
 
 class Profesor(Persona):
-    def _init_(self, nombre, edad, direccion, telefono, materia, titulacion, horario, salario,):
-        super()._init_(nombre, edad, direccion)
+    def __init__(self, nombre, edad, direccion, telefono, materia, titulacion, horario, salario,):
+        super().__init__(nombre, edad, direccion)
         self.__telefono = telefono
         self.__materia = materia
         self.__titulacion = titulacion
